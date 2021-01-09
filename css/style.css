@@ -19,9 +19,8 @@
 /*******************************************/
 
 body {
+     overflow: hidden;
      font-size: 62.5%;
-     background-color: rgba(236, 192, 237, .4) ;
-     background: linear-gradient(100deg, rgba(236, 192, 237), rgba(25, 212, 250, .5));
 }
 
 
@@ -29,10 +28,35 @@ body {
 /* LAYOUT
 /*******************************************/
 .main{
+     animation: animate 90s infinite;
+     background: url(https://wallpapercave.com/wp/2wuJNqK.jpg);
      height: 100vh;     
      width: 100vw;
-     
+     margin: 0;
+     padding: 0;
 }
+.box{
+     position: absolute;
+     bottom: 0;
+     height: 100%;
+     width: 100%;
+     z-index: 2;
+     mix-blend-mode: lighten;
+
+}
+
+@keyframes animate{
+     0%{
+          background-position: 0 100%;;
+     }
+     50%{
+          background-position: 100% 100%;
+     }
+     100%{
+          background-position: 0 100%
+     }
+}
+
 section{
     padding: 0 5%;
     display: flex;
@@ -41,12 +65,17 @@ section{
     text-align: center;
 }
 
+#title{
+     margin-top: 20px;
+     padding-top: 50px;
+}
+
 h1{
        margin: 50px 0 0 0;
 }
 h1, h2{
     font-family: 'Acme', sans-serif;
-    font-size: 3rem;
+    font-size: 4rem;
 }
 
 form{
@@ -59,6 +88,10 @@ form{
 label{
      font-family: 'Hind Madurai', sans-serif;
      font-size: 1.2rem;
+}
+
+input{
+     border-radius: 8px;
 }
 
 #monthBorn, #dayBorn{
@@ -75,11 +108,11 @@ label{
      color: rgba(246, 242, 241, 1);
      font-size: 1.7rem;
      text-decoration: none;
+     border-radius: 20px;
      border-top: 2px solid  rgba(25, 212, 250, .5);
      border-left: 2px solid  rgba(25, 212, 250, .5);
      border-right: 2px solid rgba(236, 192, 237, 0.502);
      border-bottom: 2px solid rgba(236, 192, 237, 0.4);
-     border-radius: 10%;
      background: linear-gradient(100deg, rgba(25, 212, 250, 0.4),rgba(236, 192, 237, 0.4));
 }
 
