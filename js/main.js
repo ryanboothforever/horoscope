@@ -32,11 +32,20 @@ const signsByStartDay = {
     '356': 'capricorn'
 };
 
-
 const getSign = (month, day) => {
     month= document.querySelector("#monthBorn").value.toLowerCase();
     day = Number(document.querySelector("#dayBorn").value);
-    document.querySelector("#yourSign").innerHTML = signForYearDay(monthDayToYearDay(month, day));
+    /*Make sure the month is a valid one*/
+        
+        if (!month || !day) {
+            document.querySelector("#yourSign").innerHTML = "Please enter valid month/day"
+    }   else if (!startOfEachMonth[month]  || day>=31) {
+            document.querySelector("#yourSign").innerHTML = "Not a valid month/day" ;
+         } else{
+            document.querySelector("#yourSign").innerHTML= signForYearDay(monthDayToYearDay(month, day))
+        } 
+       
+                
 }
 
 const signForYearDay = (yearDay) => {
@@ -56,5 +65,3 @@ const monthDayToYearDay = (month, day) => {
 }
 
 document.querySelector("#submit").addEventListener("click", getSign);
-
-
