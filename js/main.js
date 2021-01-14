@@ -1,7 +1,7 @@
 // startOfEachMonth represents the day of the year
 // (0 - 364) on which each month starts
 const startOfEachMonth = {
-    january: 1,
+    january: 0,
     february: 31,
     march: 59,
     april: 90,
@@ -38,7 +38,7 @@ const getSign = (month, day) => {
     day = Number(document.querySelector("#dayBorn").value);
     /*Make sure the month is a valid one*/
         
-        if (startOfEachMonth[month] && day < 32) {
+        if (startOfEachMonth[month] !==undefined && day < 32) {
             document.querySelector("#yourSign").innerHTML = signForYearDay(monthDayToYearDay(month, day))
         } else if (!month || !day) {
             document.querySelector("#yourSign").innerHTML = "Please enter valid month/day"
