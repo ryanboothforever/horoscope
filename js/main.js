@@ -39,7 +39,7 @@ const getSign = (month, day) => {
         
         if (!month || !day) {
             document.querySelector("#yourSign").innerHTML = "Please enter valid month/day"
-    }   else if (!startOfEachMonth[month]  || day>=31) {
+        } else if (!startOfEachMonth[month] || day>=32) {
             document.querySelector("#yourSign").innerHTML = "Not a valid month/day" ;
          } else{
             document.querySelector("#yourSign").innerHTML= signForYearDay(monthDayToYearDay(month, day))
@@ -65,3 +65,5 @@ const monthDayToYearDay = (month, day) => {
 }
 
 document.querySelector("#submit").addEventListener("click", getSign);
+
+
