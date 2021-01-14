@@ -1,7 +1,7 @@
 // startOfEachMonth represents the day of the year
 // (0 - 364) on which each month starts
 const startOfEachMonth = {
-    january: 0,
+    january: 1,
     february: 31,
     march: 59,
     april: 90,
@@ -18,6 +18,7 @@ const startOfEachMonth = {
 // signsByStartDay represents each day of the year
 // on which a new sign starts
 const signsByStartDay = {
+    '0': 'capricorn',
     '20': 'aquarius',
     '50': 'pisces',
     '80': 'aires',
@@ -37,15 +38,13 @@ const getSign = (month, day) => {
     day = Number(document.querySelector("#dayBorn").value);
     /*Make sure the month is a valid one*/
         
-        if (!month || !day) {
+        if (startOfEachMonth[month] && day < 32) {
+            document.querySelector("#yourSign").innerHTML = signForYearDay(monthDayToYearDay(month, day))
+        } else if (!month || !day) {
             document.querySelector("#yourSign").innerHTML = "Please enter valid month/day"
         } else if (!startOfEachMonth[month] || day>=32) {
             document.querySelector("#yourSign").innerHTML = "Not a valid month/day" ;
-         } else{
-            document.querySelector("#yourSign").innerHTML= signForYearDay(monthDayToYearDay(month, day))
-        } 
-       
-                
+        }           
 }
 
 const signForYearDay = (yearDay) => {
